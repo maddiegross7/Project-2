@@ -18,11 +18,6 @@ List::~List() {
     }
 }
 
-
-
-
-
-
 bool node_number_compare(const Node *a, const Node *b){
 
 }
