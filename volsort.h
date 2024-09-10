@@ -9,6 +9,16 @@ struct Node {
     std::string string;
     int         number;
     Node       *next;
+    Node(const std::string &s, bool numeric){
+      string = s;
+      next = NULL;
+      if(numeric){
+        number = stoi(s);
+        //LINE
+      }else{
+        number = -1;
+      }
+    }
 };
 
 struct List {
@@ -18,7 +28,7 @@ struct List {
     List(); 					// define in list.cpp
     ~List();					// define in list.cpp
 
-    void push_front(const std::string &s);	//define below
+    void push_front(const std::string &s, bool numeric);	//define below
 };
 
 // Functions -------------------------------------------------------------------
