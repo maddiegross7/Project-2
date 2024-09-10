@@ -21,7 +21,6 @@ struct List {
     void push_front(const std::string &s);	//define below
 };
 
-
 // Functions -------------------------------------------------------------------
 
 bool node_number_compare(const Node *a, const Node *b); 	//implement in list.cpp to avoid compile-time issues, used by quick, merge and stl
