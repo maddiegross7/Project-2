@@ -16,6 +16,14 @@ List::~List() {
     }
 }
 
+void List::push_front(const std::string &s){
+  Node *current = head;
+  Node *next = head->next;
+  Node *newNode = new Node(s);
+  *current->next = *newNode;
+  *newNode->next = *next;
+}
+
 bool node_number_compare(const Node *a, const Node *b){
 
 }
