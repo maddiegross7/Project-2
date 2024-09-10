@@ -1,8 +1,12 @@
 #include "volsort.h"
+#include <iostream>
 //audrey was here
 
+using namespace std;
+
 List::List() {
-    head = NULL;
+    head = new Node();
+    head->next = NULL;
 }
 
 List::~List() {
@@ -17,11 +21,13 @@ List::~List() {
 }
 
 void List::push_front(const std::string &s, bool numeric){
-  Node *current = head;
-  Node *next = head->next;
-  Node *newNode = new Node(s, numeric);
-  *current->next = *newNode;
-  *newNode->next = *next;
+    Node *current = head;
+    Node *newNode = new Node();
+    newNode->number = stoi(s);
+    newNode->string = s;
+    newNode->next = current->next;
+    current->next = newNode;
+    size++;
 }
 
 bool node_number_compare(const Node *a, const Node *b){

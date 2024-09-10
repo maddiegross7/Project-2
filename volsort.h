@@ -9,16 +9,17 @@ struct Node {
     std::string string;
     int         number;
     Node       *next;
-    Node(const std::string &s, bool numeric){
-      string = s;
-      next = NULL;
-      if(numeric){
-        number = stoi(s);
-        //LINE
-      }else{
-        number = -1;
-      }
-    }
+
+    // Node(const std::string &s, bool numeric){
+    //   string = s;
+    //   next = NULL;
+    //   if(numeric){
+    //     number = stoi(s);
+    //     //LINE
+    //   }else{
+    //     number = -1;
+    //   }
+    // }
 };
 
 struct List {

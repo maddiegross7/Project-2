@@ -14,6 +14,8 @@
 #define  MODE_QUICK     3
 #define  MODE_OBLIVIOUS 4
 
+
+using namespace std;
 // Utility functions -----------------------------------------------------------
 
 void usage(int status) {
@@ -68,7 +70,7 @@ int main(int argc, char *argv[]) {
     parse_command_line_options(argc, argv, mode, numeric);
 
     while (std::getline(std::cin, line)) {
-      //data.push_front(line);
+      data.push_front(line, numeric);
     }
     /*
     switch (mode) {
