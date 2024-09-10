@@ -34,11 +34,14 @@ void qsort_sort(List &l, bool numeric);	// define in qsort.cpp - sort using qsor
 void merge_sort(List &l, bool numeric);	// define in merge.cpp - your implementation
 void quick_sort(List &l, bool numeric);	// define in quick.cpp - your implementation
 
+
+
 void List::push_front(const std::string &s){
   Node *current = head;
   Node *next = head->next;
   Node *newNode = new Node();
   newNode->string = s;
+  newNode->number = stoi(s);
   *current->next = *newNode;
   *newNode->next = *next;
 }
