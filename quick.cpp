@@ -13,9 +13,11 @@ Node *concatenate(Node *left, Node *right);
 // Implementations
 
 void quick_sort(List &l, bool numeric) {
+    //qsort(l.head, numeric);
 }
 
 Node *qsort(Node *head, bool numeric) {
+    
 }
 
 void partition(Node *head, Node *pivot, Node *&left, Node *&right, bool numeric) {

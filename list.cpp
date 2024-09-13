@@ -1,5 +1,6 @@
 #include "volsort.h"
 #include <iostream>
+#include <cstring>
 //audrey was here
 
 using namespace std;
@@ -31,9 +32,9 @@ void List::push_front(const std::string &s, bool numeric){
 }
 
 bool node_number_compare(const Node *a, const Node *b){
-    return 1;
+    return a->number >= b->number;
 }
 
 bool node_string_compare(const Node *a, const Node *b){
-    return 1;
+    return strcmp(a->string.c_str(), b->string.c_str());
 }
