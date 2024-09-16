@@ -72,23 +72,22 @@ int main(int argc, char *argv[]) {
     while (std::getline(std::cin, line)) {
       data.push_front(line, numeric);
     }
-    /*
+    
     switch (mode) {
         case MODE_STL:
             stl_sort(data, numeric);
             break;
         case MODE_QSORT:
-            qsort_sort(data, numeric);
+            //qsort_sort(data, numeric);
             break;
         case MODE_MERGE:
-            merge_sort(data, numeric);
+            //merge_sort(data, numeric);
             break;
         case MODE_QUICK:
-            quick_sort(data, numeric);
+            //quick_sort(data, numeric);
             break;
     }
-    */
-
+    
     for (Node * curr = data.head; curr != NULL; curr = curr->next) {
         if (numeric) {
             std::cout << curr->number << std::endl;
@@ -96,7 +95,6 @@ int main(int argc, char *argv[]) {
             std::cout << curr->string << std::endl;
         }
     }
-
 
     return 0;
 }
