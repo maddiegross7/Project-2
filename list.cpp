@@ -62,7 +62,7 @@ bool comp(const Node *a, const Node *b, bool numeric){
 }
 
 bool node_number_compare(const Node *a, const Node *b){
-    return a->number <= b->number;//swap if returns false
+    return a->number < b->number;//swap if returns false
 }
 
 bool node_string_compare(const Node *a, const Node *b){

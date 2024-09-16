@@ -24,10 +24,13 @@ void stl_sort(List &l, bool numeric) {
         sort(list.begin(), list.end(), node_string_compare);
     }
 
+    //cout << "size:" << list.size() << endl;
+    l.head->next = *list.begin();
     for(auto it = list.begin(); it != list.end(); it++){
         Node* now = *it;
         now->next = *(it+1);
-        //cout << "number: " << now->number << " string: " << now->string << endl;
+        // cout << "number: " << now->number << " string: " << now->string << endl;
+        // cout << now->next->number << endl;
     }
 
 }
