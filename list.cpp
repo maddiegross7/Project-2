@@ -31,6 +31,36 @@ void List::push_front(const std::string &s, bool numeric){
     size++;
 }
 
+int List::nodeCount(){
+    //loop thru list, return count
+    int i = 0;
+    for(Node * p = head; p != NULL; p = p->next){
+        i++;
+    }
+    return i;
+}
+
+string List::at(const int &index){
+    //return data at given index
+    if(index >= nodeCount()){
+        cout << "Error: index out of range." << endl;
+        return "ERROR";
+    }
+    Node * p = head;
+    for(int i = 0; i < index; i++){
+        p = p->next;
+    }
+    return p->string;
+}
+
+bool comp(const Node *a, const Node *b, bool numeric){
+    if(numeric){
+        return node_number_compare(a, b);
+    }else{
+        return node_string_compare(a, b);
+    }
+}
+
 bool node_number_compare(const Node *a, const Node *b){
     return a->number <= b->number;//swap if returns false
 }

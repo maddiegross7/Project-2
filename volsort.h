@@ -29,14 +29,16 @@ struct List {
     List(); 					// define in list.cpp
     ~List();					// define in list.cpp
 
-    void push_front(const std::string &s, bool numeric);	//define below
+    void push_front(const std::string &s, bool numeric);
+    int nodeCount();
+    std::string at(const int &index);
 };
 
 // Functions -------------------------------------------------------------------
 
 bool node_number_compare(const Node *a, const Node *b); 	//implement in list.cpp to avoid compile-time issues, used by quick, merge and stl
 bool node_string_compare(const Node *a, const Node *b);		//implement in list.cpp to avoid compile-time issues, merge and stl
-
+bool comp(const Node *a, const Node *b, bool numeric);
 void dump_node(Node *n);					// implement in this file (volsort.h) to make it easier for TAs to grade
 
 void stl_sort(List &l, bool numeric);	// define in stl.cpp - sort using std::sort
