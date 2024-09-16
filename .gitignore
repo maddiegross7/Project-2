@@ -1,3 +1,5 @@
 myOutput
 output.string
 output.number
+*.o
+volsort
