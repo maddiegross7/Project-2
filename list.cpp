@@ -40,17 +40,17 @@ int List::nodeCount(){
     return i;
 }
 
-string List::at(const int &index){
-    //return data at given index
+Node * List::at(const int &index){
+    //return pointer to node at given index
     if(index >= nodeCount()){
-        cout << "Error: index out of range." << endl;
-        return "ERROR";
+        throw index;
     }
+
     Node * p = head;
     for(int i = 0; i < index; i++){
         p = p->next;
     }
-    return p->string;
+    return p;
 }
 
 bool comp(const Node *a, const Node *b, bool numeric){

@@ -31,7 +31,7 @@ struct List {
 
     void push_front(const std::string &s, bool numeric);
     int nodeCount();
-    std::string at(const int &index);
+    Node * at(const int &index);
 };
 
 // Functions -------------------------------------------------------------------
