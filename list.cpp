@@ -81,5 +81,5 @@ bool node_number_compare(const Node *a, const Node *b){
 }
 
 int node_string_compare(const Node *a, const Node *b){
-    return a->string.compare(b->string) ;//swap if returns false
+    return (a->string.compare(b->string) <= 0);//swap if returns false
 }
