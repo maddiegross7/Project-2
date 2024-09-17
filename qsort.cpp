@@ -1,14 +1,18 @@
 // qsort.cpp
 
 #include "volsort.h"
-
+#include <vector>
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <algorithm>
 #include <cstdlib>
 #include <array>
 #include <iostream>
 using namespace std;
 
 void qsort_sort(List &l, bool numeric) {
-    cout << "qsort happens here\n";
+//    cout << "qsort happens here\n";
     vector<struct Node *> list;
 
    Node *current = l.head->next;
@@ -19,9 +23,9 @@ void qsort_sort(List &l, bool numeric) {
     }
 
     if(numeric){
-       qsort(list.begin(), list.end(), node_number_compare);
+       qsort(list.data(), list.size(), sizeof(Node *), node_number_compare);
     }else{
-		qsort(list.begin(), list.end(), node_string_compare);
+		qsort(list.data(), list.size(), sizeof(Node *), node_string_compare);
     }
 
     l.head->next = *list.begin();

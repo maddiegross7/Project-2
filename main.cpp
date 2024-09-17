@@ -78,7 +78,7 @@ int main(int argc, char *argv[]) {
             stl_sort(data, numeric);
             break;
         case MODE_QSORT:
-            //qsort_sort(data, numeric);
+            qsort_sort(data, numeric);
             break;
         case MODE_MERGE:
             //merge_sort(data, numeric);
