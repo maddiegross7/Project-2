@@ -84,7 +84,7 @@ int main(int argc, char *argv[]) {
             //merge_sort(data, numeric);
             break;
         case MODE_QUICK:
-            //quick_sort(data, numeric);
+            quick_sort(data, numeric);
             break;
     }
     
