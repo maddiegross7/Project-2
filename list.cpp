@@ -21,7 +21,7 @@ List::~List() {
     }
 }
 
-void List::push_front(const std::string &s, bool numeric){
+void List::push_front(const std::string &s){
     Node *current = head;
     Node *newNode = new Node();
     newNode->number = stoi(s);
@@ -53,7 +53,17 @@ Node * List::at(const int &index){
     return p;
 }
 
-bool comp(const Node *a, const Node *b, bool numeric){
+void dump_node(Node * n){
+    std::cout << "Node dump: ";
+    while(n->next != NULL){
+        std::cout << n->number << " ";
+        n = n->next;
+    }
+    std::cout << endl << "Reached end of list" << endl;
+}
+
+int comp(const Node *a, const Node *b, bool numeric){
+    //cout << "running comp\n";
     if(numeric){
         return node_number_compare(a, b);
     }else{
@@ -62,9 +72,10 @@ bool comp(const Node *a, const Node *b, bool numeric){
 }
 
 bool node_number_compare(const Node *a, const Node *b){
+    //cout << "running node_number_compare\n";
     return a->number < b->number;//swap if returns false
 }
 
-bool node_string_compare(const Node *a, const Node *b){
-    return (a->string.compare(b->string) <= 0) ;//swap if returns false
+int node_string_compare(const Node *a, const Node *b){
+    return a->string.compare(b->string) ;//swap if returns false
 }

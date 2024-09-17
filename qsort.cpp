@@ -27,28 +27,41 @@ int string_compare(const void *a, const void *b){
 
 //same as STL
 void qsort_sort(List &l, bool numeric) {
+<<<<<<< HEAD
 
     vector<struct Node *> list;
+=======
+//     cout << "qsort happens here\n";
+//     vector<struct Node *> list;
+>>>>>>> 3dd1bc47d4107b4203f6a07c2d69507de720144e
 
-   Node *current = l.head->next;
+//    Node *current = l.head->next;
 
-    while(current!=NULL){
-        list.push_back(current);
-        current = current->next;
-    }
+//     while(current!=NULL){
+//         list.push_back(current);
+//         current = current->next;
+//     }
 
+<<<<<<< HEAD
     if(numeric){
 		//implementing qsort here using .data(), .size(), sizeof, and int compares
        qsort(list.data(), list.size(), sizeof(Node *), number_compare);
     }else{
 		qsort(list.data(), list.size(), sizeof(Node *), string_compare);
     }
+=======
+//     if(numeric){
+//        qsort(list.begin(), list.end(), node_number_compare);
+//     }else{
+// 		qsort(list.begin(), list.end(), node_string_compare);
+//     }
+>>>>>>> 3dd1bc47d4107b4203f6a07c2d69507de720144e
 
-    l.head->next = *list.begin();
-    for(auto it = list.begin(); it != list.end(); it++){
-        Node* now = *it;
-        now->next = *(it+1);
-    }
+//     l.head->next = *list.begin();
+//     for(auto it = list.begin(); it != list.end(); it++){
+//         Node* now = *it;
+//         now->next = *(it+1);
+//     }
 
 }
 
