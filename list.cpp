@@ -21,7 +21,7 @@ List::~List() {
     }
 }
 
-void List::push_front(const std::string &s, bool numeric){
+void List::push_front(const std::string &s){
     Node *current = head;
     Node *newNode = new Node();
     newNode->number = stoi(s);

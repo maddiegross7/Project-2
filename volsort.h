@@ -29,7 +29,7 @@ struct List {
     List(); 					// define in list.cpp
     ~List();					// define in list.cpp
 
-    void push_front(const std::string &s, bool numeric);
+    void push_front(const std::string &s);
     int nodeCount();
     Node * at(const int &index);
 };
