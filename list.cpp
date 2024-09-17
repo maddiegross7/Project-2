@@ -55,6 +55,10 @@ Node * List::at(const int &index){
 
 void dump_node(Node * n){
     std::cout << "Node dump: ";
+    if(n == NULL){
+        std::cout << "n is NULL" << endl;
+        return;
+    }
     while(n->next != NULL){
         std::cout << n->number << " ";
         n = n->next;
