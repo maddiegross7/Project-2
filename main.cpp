@@ -1,4 +1,6 @@
 // main.cpp
+//Maddie Gross, Mary Fillauer, Ava Sangiuliano, Audrey Domitrovic
+//https://github.com/maddiegross7/Project-2.git
 
 #include "volsort.h"
 
@@ -14,8 +16,8 @@
 #define  MODE_QUICK     3
 #define  MODE_OBLIVIOUS 4
 
-
 using namespace std;
+
 // Utility functions -----------------------------------------------------------
 
 void usage(int status) {
