@@ -24,11 +24,21 @@ void stl_sort(List &l, bool numeric) {
     }
 
     //set head->next to the start of the list to start the new order of the list
-    l.head->next = *list.begin();
-    for(auto it = list.begin(); it != list.end(); it++){
-        Node* now = *it;
-        now->next = *(it+1);
+    if(!list.empty()){
+        l.head->next = *list.begin();
+        for(auto it = list.begin(); it != list.end(); it++){
+            Node* now = *it;
+            if(it != list.end()){
+                now->next = *(it+1);
+            }else{
+                now->next = NULL;
+            }
+            
+        }
+    }else{
+        l.head->next = NULL;
     }
+    
 
 }
 

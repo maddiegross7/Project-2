@@ -24,13 +24,13 @@ https://github.com/maddiegross7/Project-2.git
 | MERGE   | 100000    | 0.470         | 
 | MERGE   | 1000000   | 0.385         | 
 | MERGE   | 10000000  | 5.185         |
-| QUICK   | 10        | 0             | 
-| QUICK   | 100       | 0             | 
-| QUICK   | 1000      | 0             | 
-| QUICK   | 10000     | 0             | 
-| QUICK   | 100000    | 0             | 
-| QUICK   | 1000000   | 0             | 
-| QUICK   | 10000000  | 0             |
+| QUICK   | 10        | 0.007         | 
+| QUICK   | 100       | 0.023         | 
+| QUICK   | 1000      | 0.004         | 
+| QUICK   | 10000     | 0.038         | 
+| QUICK   | 100000    | 1.100         | 
+| QUICK   | 1000000   | 9.295         | 
+| QUICK   | 10000000  | 1:56.16       |
 
 
 Discussion
@@ -41,7 +41,7 @@ Merge is pretty quick with an average time complexity of O(n), is does have the 
 sort. Quick sort is fast on average with time complexity for O(nLog(n))
 We have concluded that while the best case and time complexity that we learned about in class can sometimes be very good but in bad cases it can be just as slow as other methods. 
 We really like Merge because it was super fun to implement while also being super quick and was one of the best 
-experience with recursion we have seen
+experience with recursion we have seen, with our implentation of quick sory we would not use it.
 
 Team Summary
 Mary - All of Merge sort; what a queen
@@ -57,7 +57,4 @@ where all others needed a bool returned, we ended up making different versions o
 function to return both types where needed
 Quick sort was overall a struggle, it took the longest to implement and understand, but we got it done thank the lord
 
-Time complexity line 
-
-time ./volsort -m quick < input_{size}.txt
 

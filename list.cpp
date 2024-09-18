@@ -11,14 +11,13 @@ List::List() {
 }
 
 List::~List() {
-    if(!(head == NULL)){
-        Node * p = head;
-        while(p != NULL){
-            Node * next = p->next;
-            delete p;
-            p = next;
-        }
+    Node *p = head->next;  
+    while (p != NULL) {
+        Node *next = p->next;
+        delete p;  
+        p = next;  
     }
+    delete head; 
 }
 
 void List::push_front(const std::string &s){
