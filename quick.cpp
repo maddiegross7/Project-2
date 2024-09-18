@@ -12,91 +12,64 @@ Node *concatenate(Node *left, Node *right);
 
 // Implementations
 
+//wrapper for quicksort recursion
 void quick_sort(List &l, bool numeric) {
-    qsort(l.head->next, numeric);
+    l.head->next = qsort(l.head->next, numeric);
 }
 
+//quicksort: recursively divides list into sublists higher or lower than pivot, concatenates them back together, and returns the head of the resulting list
 Node *qsort(Node * head, bool numeric) {
-    if(head == NULL){
-        std::cout << "reached base case\n";
+    if(head == NULL || head->next == NULL){
         return head;
     }else{
-        std::cout << "doing recursive call\n Incoming list: ";
-        dump_node(head);
         Node * pivot = head;
-        std::cout << "Pivot: " << pivot->number << "\n";
         Node * leftList = NULL;//becomes head pointer of left list in partition
         Node * rightList = NULL;//becomes head pointer of right list in partition
         partition(head, pivot, leftList, rightList, numeric);
-        std::cout << "Left: ";
-        dump_node(leftList);
-        std::cout << "Right: ";
-        dump_node(rightList);
+        //recursive calls
         leftList = qsort(leftList, numeric);
         rightList = qsort(rightList, numeric);
+        //concat left, pivot, & right
         pivot->next = rightList;
         return concatenate(leftList, pivot); 
     }
 }
 
+//partition: creates two sublists of nodes greater or less than the given pivot
 void partition(Node *head, Node *pivot, Node *&left, Node *&right, bool numeric) {
-    Node * temp;
+    Node * tempL = NULL;
+    Node * tempR = NULL;
     for(Node * p = pivot->next; p != NULL; p = p->next){
-        //start at first node go til end
         if(!(comp(pivot, p, numeric))){
-            if(right == NULL){
-                right = p->next;
-                temp = p;
+            if(left == NULL){//left side: less than pivot
+                left = p;
+                tempL = left;
             }else{
-                temp->next = p;
-                temp = temp->next;
+                tempL->next = p;
+                tempL = tempL->next;
             }
-            std::cout << "pushing " << p->number << " to right list\n";
         }else{
-            if(left == NULL){
-                left = p->next;
-                temp = p;
+            if(right == NULL){//right side: greater than pivot
+                right = p;
+                tempR = right;
             }else{
-                temp->next = p;
-                temp = temp->next;
+                tempR->next = p;
+                tempR = tempR->next;
             }
-            std::cout << "pushing " << p->number << " to left list\n";
         }
+    }
+    if(tempR != NULL){
+        tempR->next = NULL;
+    }
+    if(tempL != NULL){
+        tempL->next = NULL;
     }
 }
 
-// void partition(Node *head, Node *pivot, Node *&left, Node *&right, bool numeric) {
-//     Node * tempL;
-//     Node * tempR;
-//     for(Node * p = pivot->next; p != NULL; p = p->next){
-//         if(!(comp(pivot, p, numeric))){
-//             if(right == NULL){
-//                 right = p->next;
-//                 tempR = right;
-//             }else{
-//                 tempR->next = p;
-//                 tempR = p;
-//             }
-//             std::cout << "pushing " << p->number << " to right list\n";
-//         }else{
-//             if(left == NULL){
-//                 left = p->next;
-//                 tempL = left;
-//             }else{
-//                 tempL->next = p;
-//                 tempL = p;
-//             }
-//             std::cout << "pushing " << p->number << " to left list\n";
-//         }
-//     }
-//     pivot->next = NULL;
-//     tempR->next = NULL;
-//     tempL->next = NULL;
-// }
-
+//concatenate: combine given sublists, return node pointer to the leftmost
 Node *concatenate(Node *left, Node *right) {
     Node * p = left;
-    if(left == NULL){//segfault check
+    if(left == NULL){
         return right;
     }
     while(p->next != NULL){

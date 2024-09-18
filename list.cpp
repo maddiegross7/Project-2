@@ -79,6 +79,6 @@ bool node_number_compare(const Node *a, const Node *b){
     return a->number < b->number;//swap if returns false
 }
 
-int node_string_compare(const Node *a, const Node *b){
-    return (a->string.compare(b->string) >= 0);//swap if returns false
+bool node_string_compare(const Node *a, const Node *b){
+    return (a->string.compare(b->string) <= 0);//swap if returns false
 }
