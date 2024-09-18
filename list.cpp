@@ -59,11 +59,10 @@ void dump_node(Node * n){
         std::cout << "n is NULL" << endl;
         return;
     }
-    while(n->next != NULL){
+    while(n != NULL){
         std::cout << n->number << " ";
         n = n->next;
     }
-    std::cout << endl << "Reached end of list" << endl;
 }
 
 int comp(const Node *a, const Node *b, bool numeric){
@@ -81,5 +80,5 @@ bool node_number_compare(const Node *a, const Node *b){
 }
 
 int node_string_compare(const Node *a, const Node *b){
-    return (a->string.compare(b->string) <= 0);//swap if returns false
+    return (a->string.compare(b->string) >= 0);//swap if returns false
 }

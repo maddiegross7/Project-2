@@ -17,17 +17,21 @@ void quick_sort(List &l, bool numeric) {
 }
 
 Node *qsort(Node * head, bool numeric) {
-    std::cout << "hey guys we're quicksorting\n";
-    dump_node(head);
     if(head == NULL){
-        std::cout << "base case comparison\n";
+        std::cout << "reached base case\n";
         return head;
     }else{
-        std::cout << "doing recursive call\n";
+        std::cout << "doing recursive call\n Incoming list: ";
+        dump_node(head);
         Node * pivot = head;
+        std::cout << "Pivot: " << pivot->number << "\n";
         Node * leftList = NULL;//becomes head pointer of left list in partition
         Node * rightList = NULL;//becomes head pointer of right list in partition
         partition(head, pivot, leftList, rightList, numeric);
+        std::cout << "Left: ";
+        dump_node(leftList);
+        std::cout << "Right: ";
+        dump_node(rightList);
         leftList = qsort(leftList, numeric);
         rightList = qsort(rightList, numeric);
         pivot->next = rightList;
@@ -36,34 +40,61 @@ Node *qsort(Node * head, bool numeric) {
 }
 
 void partition(Node *head, Node *pivot, Node *&left, Node *&right, bool numeric) {
-    std::cout << "running partition\n";
+    Node * temp;
     for(Node * p = pivot->next; p != NULL; p = p->next){
         //start at first node go til end
-        Node * temp;
-        if(comp(pivot, p, numeric) >= 0){//possibly backwards
-            if(p == pivot->next){
-                right = p;
+        if(!(comp(pivot, p, numeric))){
+            if(right == NULL){
+                right = p->next;
                 temp = p;
             }else{
                 temp->next = p;
                 temp = temp->next;
             }
-            std::cout << "pushing to right list\n";
+            std::cout << "pushing " << p->number << " to right list\n";
         }else{
-            if(p == pivot->next){
-                left = p;
+            if(left == NULL){
+                left = p->next;
                 temp = p;
             }else{
                 temp->next = p;
                 temp = temp->next;
             }
-            std::cout << "pushing to left list\n";
+            std::cout << "pushing " << p->number << " to left list\n";
         }
     }
 }
 
+// void partition(Node *head, Node *pivot, Node *&left, Node *&right, bool numeric) {
+//     Node * tempL;
+//     Node * tempR;
+//     for(Node * p = pivot->next; p != NULL; p = p->next){
+//         if(!(comp(pivot, p, numeric))){
+//             if(right == NULL){
+//                 right = p->next;
+//                 tempR = right;
+//             }else{
+//                 tempR->next = p;
+//                 tempR = p;
+//             }
+//             std::cout << "pushing " << p->number << " to right list\n";
+//         }else{
+//             if(left == NULL){
+//                 left = p->next;
+//                 tempL = left;
+//             }else{
+//                 tempL->next = p;
+//                 tempL = p;
+//             }
+//             std::cout << "pushing " << p->number << " to left list\n";
+//         }
+//     }
+//     pivot->next = NULL;
+//     tempR->next = NULL;
+//     tempL->next = NULL;
+// }
+
 Node *concatenate(Node *left, Node *right) {
-    std::cout << "running concatenate\n";
     Node * p = left;
     if(left == NULL){//segfault check
         return right;
