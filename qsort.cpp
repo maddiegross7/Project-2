@@ -45,7 +45,12 @@ void qsort_sort(List &l, bool numeric) {
    l.head->next = *list.begin();
    for(auto it = list.begin(); it != list.end(); it++){
       Node* now = *it;
-      now->next = *(it+1);
+      if(it+1 != list.end()){
+         now->next = *(it+1);
+      }else {
+         now->next = NULL;
+      }
+      
    }
 
 }

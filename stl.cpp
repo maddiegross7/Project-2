@@ -28,7 +28,7 @@ void stl_sort(List &l, bool numeric) {
         l.head->next = *list.begin();
         for(auto it = list.begin(); it != list.end(); it++){
             Node* now = *it;
-            if(it != list.end()){
+            if(it+1 != list.end()){
                 now->next = *(it+1);
             }else{
                 now->next = NULL;
