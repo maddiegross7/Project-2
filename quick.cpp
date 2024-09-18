@@ -1,4 +1,5 @@
-// quick.cpp
+// quick.cpp - a custom implementation of the quicksort algorithm designed to work on single linked lists
+// with help from TA Zach
 
 #include "volsort.h"
 
